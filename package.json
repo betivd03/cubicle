@@ -1,0 +1,20 @@
+{
+  "name": "cubicle",
+  "version": "1.0.0",
+  "description": "Express app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betivd03/cubicle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betivd03/cubicle/issues"
+  },
+  "homepage": "https://github.com/betivd03/cubicle#readme"
+}
