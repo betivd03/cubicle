@@ -7,6 +7,8 @@ const routes = require('./routes.js');
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+
 // initHandlebars(app);
 
 require('./config/handlebars.js')(app);
