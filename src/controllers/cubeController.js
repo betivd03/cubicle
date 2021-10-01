@@ -6,7 +6,7 @@ const cubeAccessoryController = require('./cubeAccessoryController.js');
 const router = express.Router();
 
 const getCreateCubePage = (req, res) => {
-    res.render('create');
+    res.render('cube/create');
 };
 
 const createCube = async (req, res) => {
