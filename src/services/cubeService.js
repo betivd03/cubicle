@@ -6,7 +6,7 @@ const Cube = require('../models/Cube.js');
 const getAll = () => Cube.find({}).lean();
 
 // const getOne = (id) => Cube.cubes.find(x => x.id == id);
-const getOne = (id) => Cube.findById(id);
+const getOne = (id) => Cube.findById(id).lean();
 
 const create = (name, description, imageUrl, difficulty) => {
     // let cube = new Cube(name, description, imageUrl, difficulty);
