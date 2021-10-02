@@ -5,6 +5,6 @@
     }, 
     "production": {
         "PORT": 80,
-        "DB_CONNECTION_STRING": ""
+        "DB_CONNECTION_STRING": "mongodb+srv://admin:8jHQe53btgjycoPZ@test.avjeu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     }
 }
