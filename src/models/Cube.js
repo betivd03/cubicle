@@ -60,14 +60,14 @@ module.exports = Cube;
 //             name: 'Megaminx',
 //             description: 'Different Rubik Cube',
 //             imageUrl: 'http://cdn.shopify.com/s/files/1/0035/5205/1273/products/DaYan_20Megaminx_20V2_20M_1200x1200.jpg?v=1607362354',
-//             difficulty: '5'
+//             difficulty: '6'
 //         },
 //         {
 //             id: '9m0r3qsku1l6eye',
 //             name: "Rubik's Cube 5x5x5",
 //             description: "Difficult Rubik's Cube :D",
 //             imageUrl: 'https://i5.walmartimages.com/asr/76eb79aa-1c55-4b0b-90d5-7d9a408a9e00_1.9b982635b711b3e13d3b8e8d18daf083.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff',       
-//             difficulty: '6'
+//             difficulty: '5'
 //         }
 //     ];
 
