@@ -1,12 +1,19 @@
 const express = require('express');
 const cubeService = require('../services/cubeService.js');
+const Cube = require('../models/Cube.js');
 
 const router = express.Router();
 
 const home = async (req, res) => {
     let cubes = await cubeService.getAll();
-    
-    res.render('index', { cubes });
+
+    // ONLY FOR DEMO!
+    // let test = await Cube.findByName('Megaminx');
+    // console.log(test);
+
+    res.render('index', {
+        cubes
+    });
 };
 
 const about = (req, res) => {
@@ -14,16 +21,20 @@ const about = (req, res) => {
 };
 
 const search = async (req, res) => {
-    let { search, from, to } = req.query;
+    let {
+        search,
+        from,
+        to
+    } = req.query;
 
     let cubes = await cubeService.search(search, from, to);
-    
+
     res.render('index', {
         title: 'SEARCH',
-        search, 
-        from, 
+        search,
+        from,
         to,
-        cubes 
+        cubes
     });
 };
 
