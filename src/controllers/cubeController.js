@@ -1,9 +1,8 @@
 const express = require('express');
+const router = express.Router();
 
 const cubeService = require('../services/cubeService.js');
 const cubeAccessoryController = require('./cubeAccessoryController.js');
-
-const router = express.Router();
 
 const getCreateCubePage = (req, res) => {
     res.render('cube/create');
@@ -28,11 +27,15 @@ const cubeDetails = async (req, res) => {
 }
 
 const getEditCubePage = (req, res) => {
-    res.render('cube/edit')
+    res.render('cube/edit');
 }
 
 const getDeleteCubePage = (req, res) => {
-    res.render('cube/delete')
+    if (!req.user) {
+        return res.redirect('/404');
+    }
+
+    res.render('cube/delete');
 }
 
 router.get('/create', getCreateCubePage);

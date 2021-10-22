@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authService = require('../services/authService.js');
+const { TOKEN_COOKIE_NAME } = require('../constants.js');
 
 router.get('/register', (req, res) => {
     res.render('auth/register');
@@ -27,7 +28,7 @@ router.post('/login', async (req, res) => {
     
     let user = await authService.login(username, password);
 
-    console.log(user);
+    // console.log(user);
     
     if (!user) {
         return res.redirect('/404');
@@ -43,11 +44,11 @@ router.post('/login', async (req, res) => {
     //     }
     // });
 
-    res.cookie('app_token', token, {
+    res.cookie(TOKEN_COOKIE_NAME, token, {
         httpOnly: true
     })
 
-    console.log(token);
+    // console.log(token);
     res.redirect('/');
 });
 

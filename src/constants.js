@@ -1,1 +1,2 @@
 exports.SECRET = "6D52D9F42F6E51536E76F13BD42C8";
+exports.TOKEN_COOKIE_NAME = 'app_token';

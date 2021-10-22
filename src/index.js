@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const routes = require('./routes.js');
 const config = require('./config/config.json')[process.env.NODE_ENV]; // [process.env.NODE_ENV || 'development']
 const initDataBase = require('./config/database.js');
+const { auth } = require('./middlewares/authMiddleware.js');
 
 // const initHandlebars = require('./config/handlebars.js');
 
@@ -13,6 +14,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
+
+app.use(auth);
 
 // initHandlebars(app);
 
