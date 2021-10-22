@@ -43,6 +43,10 @@ router.post('/login', async (req, res) => {
     //     }
     // });
 
+    res.cookie('app_token', token, {
+        httpOnly: true
+    })
+
     console.log(token);
     res.redirect('/');
 });
