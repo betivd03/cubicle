@@ -1,5 +1,8 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
 const User = require('../models/User.js');
+const { jwtSign } = require('../utils/jwtUtils.js');
+const { SECRET } = require('../constants.js');
 
 exports.register = function(username, password, repeatPassword) {
     // Validate password
@@ -21,4 +24,13 @@ exports.login = function(username, password, repeatPassword) {
             }
         })
         .catch(() => null);
+};
+
+exports.createToken = function (user) {
+    let payload = {
+        _id: user._id,
+        username: user.username
+    }
+
+    return jwtSign(payload, SECRET);
 }
