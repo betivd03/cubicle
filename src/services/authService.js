@@ -33,4 +33,29 @@ exports.createToken = function (user) {
     }
 
     return jwtSign(payload, SECRET);
+
+    // return new Promise((resolve, reject) => {
+    //     jwt.sign(payload, SECRET, function(err, token) {
+    //         if (err) {
+    //             reject(err);
+    //         } else {
+    //             resolve(token);
+    //         }
+    //     })
+    // });
 }
+
+// exports.createToken = function (user, onTokenCreate) {
+//     let payload = {
+//         _id: user._id,
+//         username: user.username
+//     }
+
+//     jwtSign.sign(payload, SECRET, function(err, token) {
+//         if (err) {
+//             return onTokenCreate(err);
+//         }
+
+//         onTokenCreate(null, token);
+//     });
+// };

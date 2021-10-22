@@ -34,6 +34,15 @@ router.post('/login', async (req, res) => {
     }
     
     let token = await authService.createToken(user);
+
+    // authService.createToken(user, function(err, token) {
+    //     if(err) {
+
+    //     } else {
+    //         res.redirect('/');
+    //     }
+    // });
+
     console.log(token);
     res.redirect('/');
 });
