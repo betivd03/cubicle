@@ -1,14 +1,19 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const cubeSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        minlength: 5,
+        validate: [/^[a-zA-Z0-9 ]+$/, 'Name should consist of English letters, digits and whitespaces!'], 
     },
     description: {
         type: String,
         required: true,
         maxlength: 100,
+        minlength: 20,
+        validate: [/^[a-zA-Z0-9 ]+$/, 'Description should consist of English letters, digits and whitespaces!'], 
     },
     imageUrl: {
         type: String,
@@ -32,7 +37,11 @@ const cubeSchema = new mongoose.Schema({
             type: mongoose.Types.ObjectId,
             ref: 'Accessory',
         }
-    ]
+    ],
+    creator: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 // cubeSchema.path('imageUrl').validate(function(value) {

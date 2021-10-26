@@ -7,15 +7,25 @@ router.get('/register', (req, res) => {
     res.render('auth/register');
 });
 
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
     try {
         let { username, password, repeatPassword } = req.body;
+
+        // if (password != repeatPassword) {
+        //     res.status(400).send(err.message);
+        // }
     
         await authService.register(username, password, repeatPassword);
     
         res.redirect('/login');
-    } catch (err) {
-        res.status(400).send(err);
+    } catch (error) {
+        // console.log(error);
+        // res.status(400).send(error.message);
+        // res.locals.error = error.message;
+        // res.redirect('/register');
+        // next(error.message);
+
+        res.status(400).render('auth/register', { error: error.message });
     }
 });
 
@@ -49,6 +59,12 @@ router.post('/login', async (req, res) => {
     })
 
     // console.log(token);
+    res.redirect('/');
+});
+
+router.get('/logout', (req, res) => {
+    res.clearCookie(TOKEN_COOKIE_NAME);
+
     res.redirect('/');
 });
 

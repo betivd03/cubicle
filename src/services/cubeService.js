@@ -9,7 +9,7 @@ const getAll = () => Cube.find({}).lean();
 // const getOne = (id) => Cube.cubes.find(x => x.id == id);
 const getOne = (id) => Cube.findById(id).populate('accessories').lean();
 
-const create = (name, description, imageUrl, difficulty) => {
+const create = (name, description, imageUrl, difficulty, userId) => {
     // let cube = new Cube(name, description, imageUrl, difficulty);
 
     // // cubeDb.push(cube);
@@ -18,7 +18,8 @@ const create = (name, description, imageUrl, difficulty) => {
         name, 
         description,
         imageUrl,
-        difficulty
+        difficulty,
+        creator: userId
     });
 
     return cube.save();
